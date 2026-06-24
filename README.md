@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Many Money
 
-## Getting Started
+[![CI](https://github.com/papap35/many-money/actions/workflows/ci.yml/badge.svg)](https://github.com/papap35/many-money/actions/workflows/ci.yml)
 
-First, run the development server:
+AI 輔助記帳軟體，目標是幫助使用者**開源節流**。除了完整的記帳功能，還包含家庭共享帳本、Duolingo 式的記帳習慣養成機制，以及 AI 金流分析與節流建議。
+
+> 🚧 專案目前處於早期開發階段，詳細功能規劃請見 [`SPEC.md`](./SPEC.md)。
+
+## 功能定位
+
+- 📒 **完整記帳功能** — 收支記錄、分類、多帳本管理
+- 👨‍👩‍👧 **家庭共享** — 邀請家人共用帳本，共同管理家庭財務
+- 🔥 **遊戲化** — 連續記帳天數、預算進度、情勒提醒，養成記帳習慣
+- 🤖 **AI 金流分析** — 分析消費模式，提出具體可執行的開源節流建議
+
+## 技術棧
+
+- **框架**：[Next.js](https://nextjs.org)（App Router）+ TypeScript
+- **樣式**：Tailwind CSS
+- **部署**：Vercel（push 到 `main` 自動部署正式環境，PR 自動產生 preview）
+- **CI**：GitHub Actions（lint + typecheck + build）
+
+## 開發
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+開啟 [http://localhost:3000](http://localhost:3000) 查看結果。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run lint        # ESLint
+npm run typecheck   # tsc --noEmit
+npm run build       # production build
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 專案文件
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [`AGENTS.md`](./AGENTS.md) — AI agent 與開發者共同遵守的開發規範（程式碼原則、測試規範、Branch/Commit/PR 流程）
+- [`SPEC.md`](./SPEC.md) — 功能規格書，依優先級（P0~P5）拆解需求
